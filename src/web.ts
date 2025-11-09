@@ -38,4 +38,8 @@ export class SpeechRecognitionWeb extends WebPlugin implements SpeechRecognition
   requestPermissions(): Promise<SpeechRecognitionPermissionStatus> {
     throw this.unimplemented('Speech recognition permissions are not handled on the web.');
   }
+
+  async getPluginVersion(): Promise<{ version: string }> {
+    return { version: 'web' };
+  }
 }

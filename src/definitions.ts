@@ -118,6 +118,12 @@ export interface SpeechRecognitionPlugin {
    */
   requestPermissions(): Promise<SpeechRecognitionPermissionStatus>;
   /**
+   * Returns the native plugin version bundled with this package.
+   *
+   * Useful when reporting issues to confirm that native and JS versions match.
+   */
+  getPluginVersion(): Promise<{ version: string }>;
+  /**
    * Listen for segmented session completion events (Android only).
    */
   addListener(eventName: 'endOfSegmentedSession', listenerFunc: () => void): Promise<PluginListenerHandle>;

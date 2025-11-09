@@ -73,6 +73,7 @@ Add the following keys to your app `Info.plist`:
 * [`isListening()`](#islistening)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions()`](#requestpermissions)
+* [`getPluginVersion()`](#getpluginversion)
 * [`addListener('endOfSegmentedSession', ...)`](#addlistenerendofsegmentedsession-)
 * [`addListener('segmentResults', ...)`](#addlistenersegmentresults-)
 * [`addListener('partialResults', ...)`](#addlistenerpartialresults-)
@@ -180,6 +181,21 @@ requestPermissions() => Promise<SpeechRecognitionPermissionStatus>
 Requests the microphone + speech recognition permissions.
 
 **Returns:** <code>Promise&lt;<a href="#speechrecognitionpermissionstatus">SpeechRecognitionPermissionStatus</a>&gt;</code>
+
+--------------------
+
+
+### getPluginVersion()
+
+```typescript
+getPluginVersion() => Promise<{ version: string; }>
+```
+
+Returns the native plugin version bundled with this package.
+
+Useful when reporting issues to confirm that native and JS versions match.
+
+**Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
 
 --------------------
 

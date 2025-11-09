@@ -34,6 +34,7 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
 
     public static final String SPEECH_RECOGNITION = "speechRecognition";
     private static final String TAG = "SpeechRecognition";
+    private static final String PLUGIN_VERSION = "7.0.0";
 
     private Receiver languageReceiver;
     private SpeechRecognizer speechRecognizer;
@@ -142,6 +143,13 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
     @Override
     public void requestPermissions(PluginCall call) {
         requestPermissionForAlias(SPEECH_RECOGNITION, call, "permissionsCallback");
+    }
+
+    @PluginMethod
+    public void getPluginVersion(PluginCall call) {
+        JSObject ret = new JSObject();
+        ret.put("version", PLUGIN_VERSION);
+        call.resolve(ret);
     }
 
     @PermissionCallback
