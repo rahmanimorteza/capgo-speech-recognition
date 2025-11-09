@@ -1,7 +1,7 @@
 {
   "name": "@capgo/capacitor-speech-recognition",
-  "version": "7.0.0",
-  "description": "Modern Capacitor plugin for on-device and cloud speech recognition with live partial results.",
+  "version": "7.0.1",
+  "description": "Capacitor plugin for comprehensive on-device speech recognition with live partial results.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
