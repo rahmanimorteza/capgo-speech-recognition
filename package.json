@@ -1,11 +1,24 @@
 {
-  "name": "@capgo/capacitor-speech-recognition",
+  "name": "@rahmanimorteza/capgo-speech-recognition",
   "version": "8.0.3",
   "description": "Capacitor plugin for comprehensive on-device speech recognition with live partial results.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/plugin.cjs.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
   "files": [
     "android/src/main/",
     "android/build.gradle",
@@ -15,16 +28,16 @@
     "Package.swift",
     "CapgoCapacitorSpeechRecognition.podspec"
   ],
-  "author": "Martin Donadieu <martin@capgo.app>",
+  "author": "Morteza Rahmani <rmorteza3000@gmail.com>",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cap-go/capacitor-speech-recognition.git"
+    "url": "git+https://github.com/rahmanimorteza/capgo-speech-recognition.git"
   },
   "bugs": {
-    "url": "https://github.com/Cap-go/capacitor-speech-recognition/issues"
+    "url": "https://github.com/rahmanimorteza/capgo-speech-recognition/issues"
   },
-  "homepage": "https://capgo.app/docs/plugins/speech-recognition/",
+  "homepage": "https://github.com/rahmanimorteza/capgo-speech-recognition#readme",
   "keywords": [
     "capacitor",
     "plugin",
@@ -34,20 +47,20 @@
     "transcription"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "bun run verify:ios && bun run verify:android && bun run verify:web",
     "verify:ios": "xcodebuild -scheme CapgoCapacitorSpeechRecognition -destination generic/platform=iOS",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
-    "verify:web": "npm run build",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "verify:web": "bun run build",
+    "lint": "bun run eslint && bun run prettier -- --check && bun run swiftlint -- lint",
+    "fmt": "bun run eslint -- --fix && bun run prettier -- --write && bun run swiftlint -- --fix --format",
     "eslint": "eslint . --ext ts",
     "prettier": "prettier-pretty-check \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint",
     "docgen": "docgen --api SpeechRecognitionPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
+    "build": "bun run clean && bun run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "bun run build"
   },
   "devDependencies": {
     "@capacitor/android": "^8.0.0",

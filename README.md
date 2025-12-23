@@ -1,10 +1,4 @@
-# @capgo/capacitor-speech-recognition
- <a href="https://capgo.app/"><img src='https://raw.githubusercontent.com/Cap-go/capgo/main/assets/capgo_banner.png' alt='Capgo - Instant updates for capacitor'/></a>
-
-<div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_speech_recognition"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_speech_recognition"> Missing a feature? We’ll build the plugin for you 💪</a></h2>
-</div>
+# @rahmanimorteza/capgo-speech-recognition
 
 Natural, low-latency speech recognition for Capacitor apps with parity across iOS and Android, streaming partial results, and permission helpers baked in.
 
@@ -19,19 +13,20 @@ This package starts from the excellent [`capacitor-community/speech-recognition`
 
 ## Documentation
 
-The most complete doc is available here: https://capgo.app/docs/plugins/speech-recognition/
+This repository is prepared to be published as a new npm package. Update the package name placeholders
+(`@rahmanimorteza/capgo-speech-recognition`, `rahmanimorteza/capgo-speech-recognition`) before publishing.
 
 ## Install
 
 ```bash
-npm install @capgo/capacitor-speech-recognition
+npm install @rahmanimorteza/capgo-speech-recognition
 npx cap sync
 ```
 
 ## Usage
 
 ```ts
-import { SpeechRecognition } from '@capgo/capacitor-speech-recognition';
+import { SpeechRecognition } from '@rahmanimorteza/capgo-speech-recognition';
 
 await SpeechRecognition.requestPermissions();
 

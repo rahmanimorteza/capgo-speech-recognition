@@ -1,5 +1,5 @@
 import './style.css';
-import { SpeechRecognition } from '@capgo/capacitor-speech-recognition';
+import { SpeechRecognition } from '@rahmanimorteza/capgo-speech-recognition';
 
 const refs = {
   availability: document.getElementById('availability'),
