@@ -210,7 +210,12 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
             intent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt);
         }
 
-        resetPartialResultsCache();
+        try {
+            lock.lock();
+            resetPartialResultsCache();
+        } finally {
+            lock.unlock();
+        }
 
         if (showPopup) {
             bridge
@@ -391,7 +396,12 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
             String errorMssg = getErrorText(error);
 
             // Reset state synchronously on the same thread
-            resetPartialResultsCache();
+            try {
+                lock.lock();
+                resetPartialResultsCache();
+            } finally {
+                lock.unlock();
+            }
             SpeechRecognitionPlugin.this.listening(false);
 
             // Destroy the recognizer synchronously to ensure clean state for next attempt
@@ -434,7 +444,12 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
                     call.resolve(new JSObject().put("status", "error").put("message", ex.getMessage()));
                 }
             } finally {
-                resetPartialResultsCache();
+                try {
+                    lock.lock();
+                    resetPartialResultsCache();
+                } finally {
+                    lock.unlock();
+                }
             }
         }
 
@@ -444,6 +459,7 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
             JSArray matchesJSON = new JSArray(matches);
 
             try {
+                lock.lock();
                 if (matches != null && matches.size() > 0 && !previousPartialResults.equals(matchesJSON)) {
                     previousPartialResults = matchesJSON;
                     JSObject ret = new JSObject();
@@ -451,7 +467,10 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
                     notifyListeners(PARTIAL_RESULTS_EVENT, ret);
                     Logger.debug(TAG, "Partial results updated");
                 }
-            } catch (Exception ex) {}
+            } catch (Exception ex) {
+            } finally {
+                lock.unlock();
+            }
         }
 
         @Override
