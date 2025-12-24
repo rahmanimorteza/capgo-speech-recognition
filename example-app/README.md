@@ -1,4 +1,4 @@
-# Example App for `@rahmanimorteza/capgo-speech-recognition`
+# Example App for `capacitor-native-speech-recognition`
 
 This Vite playground links to the plugin via `file:..` so you can validate live speech-to-text flows while iterating on the native code.
 

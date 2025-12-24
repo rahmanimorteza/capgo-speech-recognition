@@ -1,6 +1,6 @@
 {
-  "name": "@rahmanimorteza/capgo-speech-recognition",
-  "version": "8.0.3",
+  "name": "capacitor-native-speech-recognition",
+  "version": "1.0.0",
   "description": "Capacitor plugin for comprehensive on-device speech recognition with live partial results.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -32,7 +32,7 @@
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rahmanimorteza/capgo-speech-recognition.git"
+    "url": "git+https://github.com/rahmanimorteza/capgo-speech-recognition.git#package"
   },
   "bugs": {
     "url": "https://github.com/rahmanimorteza/capgo-speech-recognition/issues"
