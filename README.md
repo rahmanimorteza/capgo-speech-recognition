@@ -11,11 +11,6 @@ This package starts from the excellent [`capacitor-community/speech-recognition`
 - 🛠️ **Active maintenance** – same conventions as all Capgo plugins (SPM, Podspec, workflows, example app) so it tracks Capacitor major versions without bit-rot.
 - 📦 **Drop-in migration** – TypeScript definitions remain compatible with the community plugin while exposing the extra options (`addPunctuation`, `allowForSilence`, `segmentResults`, etc.).
 
-## Documentation
-
-This repository is prepared to be published as a new npm package. Update the package name placeholders
-(`capacitor-native-speech-recognition`, `rahmanimorteza/capgo-speech-recognition`) before publishing.
-
 ## Install
 
 ```bash
