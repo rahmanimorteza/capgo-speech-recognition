@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "app.capgo.speechrecognition"
+    namespace "app.capacitor.nativespeechrecognition"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "app.capgo.speechrecognition"
+        applicationId "app.capacitor.nativespeechrecognition"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

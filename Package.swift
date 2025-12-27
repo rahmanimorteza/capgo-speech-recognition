@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "CapgoCapacitorSpeechRecognition",
+    name: "CapacitorNativeSpeechRecognition",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "CapgoCapacitorSpeechRecognition",
+            name: "CapacitorNativeSpeechRecognition",
             targets: ["SpeechRecognitionPlugin"])
     ],
     dependencies: [

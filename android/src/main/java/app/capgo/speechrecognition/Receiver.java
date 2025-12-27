@@ -1,4 +1,4 @@
-package app.capgo.speechrecognition;
+package app.capacitor.nativespeechrecognition;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

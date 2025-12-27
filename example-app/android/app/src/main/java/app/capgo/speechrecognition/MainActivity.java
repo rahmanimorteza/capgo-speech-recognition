@@ -1,4 +1,4 @@
-package app.capgo.speechrecognition;
+package app.capacitor.nativespeechrecognition;
 
 import com.getcapacitor.BridgeActivity;
 

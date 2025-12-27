@@ -1,5 +1,5 @@
 {
-  "appId": "app.capgo.speechrecognition",
+  "appId": "app.capacitor.nativespeechrecognition",
   "appName": "Speech Recognition Example",
   "webDir": "dist",
   "plugins": {
