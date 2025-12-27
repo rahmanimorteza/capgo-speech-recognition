@@ -222,10 +222,14 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
                 .getActivity()
                 .runOnUiThread(() -> {
                     try {
+                        SpeechRecognitionPlugin.this.lock.lock();
                         SpeechRecognitionPlugin.this.listening(true);
+                        SpeechRecognitionPlugin.this.lock.unlock();
                         SpeechRecognitionPlugin.this.startActivityForResult(call, intent, "listeningResult");
                     } catch (Exception ex) {
+                        SpeechRecognitionPlugin.this.lock.lock();
                         SpeechRecognitionPlugin.this.listening(false);
+                        SpeechRecognitionPlugin.this.lock.unlock();
                         call.reject(ex.getMessage());
                     }
                 });
@@ -395,24 +399,24 @@ public class SpeechRecognitionPlugin extends Plugin implements Constants {
         public void onError(int error) {
             String errorMssg = getErrorText(error);
 
-            // Reset state synchronously on the same thread
+            // Reset state synchronously on the same thread with proper synchronization
             try {
                 lock.lock();
                 resetPartialResultsCache();
+                SpeechRecognitionPlugin.this.listening(false);
+
+                // Destroy the recognizer to ensure clean state for next attempt
+                if (speechRecognizer != null) {
+                    try {
+                        speechRecognizer.cancel();
+                    } catch (Exception ignored) {}
+                    try {
+                        speechRecognizer.destroy();
+                    } catch (Exception ignored) {}
+                    speechRecognizer = null;
+                }
             } finally {
                 lock.unlock();
-            }
-            SpeechRecognitionPlugin.this.listening(false);
-
-            // Destroy the recognizer synchronously to ensure clean state for next attempt
-            if (speechRecognizer != null) {
-                try {
-                    speechRecognizer.cancel();
-                } catch (Exception ignored) {}
-                try {
-                    speechRecognizer.destroy();
-                } catch (Exception ignored) {}
-                speechRecognizer = null;
             }
 
             Logger.error(TAG, "Recognizer error: " + errorMssg, null);
